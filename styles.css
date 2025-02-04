@@ -1,0 +1,107 @@
+/* Fondo animado con resplandor */
+body {
+    background-color: #121826;
+    color: #e0aaff;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Fondo con efecto de resplandor */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(28,19,51,1) 0%, rgba(18,18,32,1) 100%);
+    z-index: -1;
+    animation: glowing 10s infinite alternate ease-in-out;
+}
+
+/* Animación de resplandor */
+@keyframes glowing {
+    0% {
+        background: radial-gradient(circle, rgba(40,30,70,1) 0%, rgba(18,18,32,1) 100%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(28,19,51,1) 0%, rgba(18,18,32,1) 100%);
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 10vh;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #e0aaff;
+}
+
+#board {
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.btn-square {
+    height: 100px;
+    width: 100px;
+    font-size: 2rem;
+    border-radius: 10%;
+    border: 2px solid #c77dff;
+    background-color: #1e1e2e;
+    color: #e0aaff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efecto de brillo en fichas ganadoras */
+.win {
+    animation: glow 1s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px #c77dff; }
+    100% { box-shadow: 0 0 15px #e0aaff; }
+}
+
+/* Polvo de estrellas al hacer clic */
+.sparkle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(2); }
+}
+
+/* Botón de reinicio */
+.btn-reset {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #9d4edd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-reset:hover {
+    background-color: #c77dff;
+    transform: scale(1.1);
+}
